@@ -1,0 +1,822 @@
+[
+  {
+    "slug": "ghibli-saree",
+    "title": "Ghibli Saree Trend",
+    "description": "Soft anime-style Indian portrait with Studio Ghibli aesthetics",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "average",
+      "midjourney": "not_recommended",
+      "leonardo": "average"
+    },
+    "prompt": "Ultra-detailed Studio Ghibli–inspired portrait of a beautiful Indian woman wearing an elegant silk saree, soft pastel colors, dreamy lighting, anime art style, gentle expression, floating fabric, magical atmosphere, 4K quality, cinematic composition",
+    "beforeImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop"
+    ],
+    "tags": ["anime", "ghibli", "saree", "portrait"],
+    "category": "trending",
+    "createdAt": "2024-01-15",
+    "filters": {
+      "primaryCategory": "woman",
+      "style": ["ghibli", "anime"],
+      "pose": ["portrait"],
+      "background": ["indian-temple", "nature"],
+      "god": null
+    }
+  },
+  {
+    "slug": "cyberpunk-samurai",
+    "title": "Cyberpunk Samurai",
+    "description": "Neon-lit futuristic warrior with traditional Japanese elements",
+    "bestModel": "Midjourney",
+    "modelRatings": {
+      "chatgpt": "average",
+      "gemini": "average",
+      "midjourney": "best",
+      "leonardo": "best"
+    },
+    "prompt": "Cyberpunk samurai warrior, neon lights, Tokyo night cityscape background, traditional katana with holographic effects, rain-soaked streets, cinematic lighting, 8K resolution, Blade Runner aesthetic, detailed armor, glowing eyes",
+    "beforeImage": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop"
+    ],
+    "tags": ["cyberpunk", "samurai", "futuristic", "neon"],
+    "category": "trending",
+    "createdAt": "2024-01-20",
+    "filters": {
+      "primaryCategory": "man",
+      "style": ["3d-render", "realistic"],
+      "pose": ["cinematic", "full-body"],
+      "background": ["city"],
+      "god": null
+    }
+  },
+  {
+    "slug": "cottagecore-aesthetic",
+    "title": "Cottagecore Aesthetic",
+    "description": "Cozy countryside scenes with vintage charm",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "best",
+      "midjourney": "average",
+      "leonardo": "average"
+    },
+    "prompt": "Cottagecore aesthetic scene, cozy wooden cabin, wildflowers in meadow, golden hour lighting, vintage furniture, hand-knitted blankets, warm earth tones, peaceful atmosphere, detailed textures, soft focus background",
+    "beforeImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop"
+    ],
+    "tags": ["cottagecore", "aesthetic", "nature", "vintage"],
+    "category": "new",
+    "createdAt": "2024-01-25",
+    "filters": {
+      "primaryCategory": "family",
+      "style": ["realistic", "oil-painting"],
+      "pose": ["cinematic"],
+      "background": ["village", "nature"],
+      "god": null
+    }
+  },
+  {
+    "slug": "dark-academia-portrait",
+    "title": "Dark Academia Portrait",
+    "description": "Moody scholarly atmosphere with vintage library vibes",
+    "bestModel": "Gemini",
+    "modelRatings": {
+      "chatgpt": "average",
+      "gemini": "best",
+      "midjourney": "average",
+      "leonardo": "not_recommended"
+    },
+    "prompt": "Dark academia portrait, vintage library setting, warm candlelight, leather-bound books, tweed blazer, scholarly atmosphere, muted browns and golds, film grain texture, dramatic shadows, intellectual aesthetic",
+    "beforeImage": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop"
+    ],
+    "tags": ["dark-academia", "portrait", "vintage", "scholarly"],
+    "category": "trending",
+    "createdAt": "2024-01-18",
+    "filters": {
+      "primaryCategory": "man",
+      "style": ["realistic", "oil-painting"],
+      "pose": ["portrait"],
+      "background": ["studio"],
+      "god": null
+    }
+  },
+  {
+    "slug": "minimalist-architecture",
+    "title": "Minimalist Architecture",
+    "description": "Clean lines and geometric forms in modern design",
+    "bestModel": "Midjourney",
+    "modelRatings": {
+      "chatgpt": "not_recommended",
+      "gemini": "average",
+      "midjourney": "best",
+      "leonardo": "best"
+    },
+    "prompt": "Minimalist architecture photography, clean geometric lines, white concrete, natural light, empty spaces, modern design, architectural details, serene atmosphere, high contrast, professional photography style",
+    "beforeImage": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop"
+    ],
+    "tags": ["architecture", "minimalist", "modern", "geometric"],
+    "category": "new",
+    "createdAt": "2024-01-22"
+  },
+  {
+    "slug": "fantasy-forest",
+    "title": "Fantasy Forest",
+    "description": "Enchanted woodland with magical creatures and ethereal lighting",
+    "bestModel": "Leonardo",
+    "modelRatings": {
+      "chatgpt": "average",
+      "gemini": "average",
+      "midjourney": "best",
+      "leonardo": "best"
+    },
+    "prompt": "Fantasy forest scene, enchanted woodland, bioluminescent plants, magical creatures, ethereal lighting, misty atmosphere, ancient trees, fairy tale aesthetic, vibrant colors, detailed fantasy art",
+    "beforeImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1511497584788-876760111969?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=400&fit=crop"
+    ],
+    "tags": ["fantasy", "forest", "magical", "nature"],
+    "category": "archive",
+    "createdAt": "2023-12-10"
+  },
+  {
+    "slug": "vaporwave-sunset",
+    "title": "Vaporwave Sunset",
+    "description": "Retro-futuristic aesthetic with neon colors and palm trees",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "average",
+      "midjourney": "best",
+      "leonardo": "average"
+    },
+    "prompt": "Vaporwave aesthetic sunset, neon pink and purple sky, palm tree silhouettes, retro-futuristic vibes, grid patterns, 80s aesthetic, synthwave colors, dreamy atmosphere, high saturation, nostalgic feel",
+    "beforeImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop"
+    ],
+    "tags": ["vaporwave", "sunset", "retro", "neon"],
+    "category": "archive",
+    "createdAt": "2023-11-20"
+  },
+  {
+    "slug": "steampunk-mechanic",
+    "title": "Steampunk Mechanic",
+    "description": "Victorian-era technology with gears and brass",
+    "bestModel": "Midjourney",
+    "modelRatings": {
+      "chatgpt": "not_recommended",
+      "gemini": "average",
+      "midjourney": "best",
+      "leonardo": "best"
+    },
+    "prompt": "Steampunk mechanic workshop, brass gears, Victorian era technology, steam-powered machinery, detailed mechanical parts, warm copper tones, industrial atmosphere, intricate designs, vintage aesthetic, high detail",
+    "beforeImage": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=400&fit=crop"
+    ],
+    "tags": ["steampunk", "mechanic", "victorian", "industrial"],
+    "category": "trending",
+    "createdAt": "2024-01-19"
+  },
+  {
+    "slug": "kawaii-food",
+    "title": "Kawaii Food Art",
+    "description": "Cute Japanese-style food illustrations with faces",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "best",
+      "midjourney": "average",
+      "leonardo": "average"
+    },
+    "prompt": "Kawaii food art, cute Japanese-style illustration, food with adorable faces, pastel colors, soft lighting, happy expressions, detailed textures, playful composition, Instagram-worthy, charming aesthetic",
+    "beforeImage": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop"
+    ],
+    "tags": ["kawaii", "food", "cute", "japanese"],
+    "category": "new",
+    "createdAt": "2024-01-24"
+  },
+  {
+    "slug": "noir-detective",
+    "title": "Noir Detective Scene",
+    "description": "Classic film noir atmosphere with shadows and mystery",
+    "bestModel": "Gemini",
+    "modelRatings": {
+      "chatgpt": "average",
+      "gemini": "best",
+      "midjourney": "average",
+      "leonardo": "not_recommended"
+    },
+    "prompt": "Film noir detective scene, 1940s atmosphere, dramatic shadows, rain-soaked streets, trench coat silhouette, cigarette smoke, black and white with selective color, moody lighting, cinematic composition",
+    "beforeImage": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=400&fit=crop"
+    ],
+    "tags": ["noir", "detective", "vintage", "cinematic"],
+    "category": "archive",
+    "createdAt": "2023-10-15"
+  },
+  {
+    "slug": "space-explorer",
+    "title": "Space Explorer",
+    "description": "Cosmic landscapes with astronauts and distant planets",
+    "bestModel": "Leonardo",
+    "modelRatings": {
+      "chatgpt": "average",
+      "gemini": "average",
+      "midjourney": "best",
+      "leonardo": "best"
+    },
+    "prompt": "Space explorer on alien planet, cosmic landscape, distant nebula, astronaut in detailed suit, otherworldly terrain, dramatic lighting, sci-fi aesthetic, 4K quality, cinematic wide shot, vibrant space colors",
+    "beforeImage": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop"
+    ],
+    "tags": ["space", "sci-fi", "cosmic", "explorer"],
+    "category": "new",
+    "createdAt": "2024-01-23"
+  },
+  {
+    "slug": "watercolor-dreams",
+    "title": "Watercolor Dreams",
+    "description": "Soft flowing colors with dreamy abstract forms",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "best",
+      "midjourney": "not_recommended",
+      "leonardo": "average"
+    },
+    "prompt": "Watercolor art, soft flowing colors, dreamy abstract forms, pastel palette, organic shapes, artistic brushstrokes, ethereal atmosphere, gentle gradients, artistic composition, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    ],
+    "tags": ["watercolor", "abstract", "artistic", "dreamy"],
+    "category": "trending",
+    "createdAt": "2024-01-21",
+    "filters": {
+      "primaryCategory": "cartoon-anime",
+      "style": ["watercolor"],
+      "pose": ["portrait"],
+      "background": ["nature"],
+      "god": null
+    }
+  },
+  {
+    "slug": "indian-boy-portrait",
+    "title": "Indian Boy Portrait",
+    "description": "Cute Indian boy in traditional attire with vibrant colors",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "average",
+      "leonardo": "good"
+    },
+    "prompt": "Portrait of a cute Indian boy, traditional kurta, bright colors, cheerful expression, natural lighting, detailed features, high quality, 4K",
+    "beforeImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop"
+    ],
+    "tags": ["boy", "portrait", "traditional", "indian"],
+    "category": "trending",
+    "createdAt": "2024-01-22",
+    "filters": {
+      "primaryCategory": "boy",
+      "style": ["realistic"],
+      "pose": ["portrait"],
+      "background": ["studio"],
+      "god": null
+    }
+  },
+  {
+    "slug": "indian-girl-festival",
+    "title": "Indian Girl Festival Look",
+    "description": "Beautiful Indian girl in festive attire with traditional jewelry",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "good",
+      "leonardo": "average"
+    },
+    "prompt": "Beautiful Indian girl in festive lehenga, traditional jewelry, henna designs, vibrant colors, festival atmosphere, joyful expression, detailed embroidery, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop"
+    ],
+    "tags": ["girl", "festival", "traditional", "indian"],
+    "category": "trending",
+    "createdAt": "2024-01-23",
+    "filters": {
+      "primaryCategory": "girl",
+      "style": ["realistic"],
+      "pose": ["festival", "full-body"],
+      "background": ["temple", "village"],
+      "god": null
+    }
+  },
+  {
+    "slug": "cute-baby-portrait",
+    "title": "Cute Baby Portrait",
+    "description": "Adorable Indian baby with innocent expression",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "best",
+      "midjourney": "average",
+      "leonardo": "good"
+    },
+    "prompt": "Cute Indian baby portrait, innocent expression, soft lighting, pastel colors, detailed features, high quality, professional photography",
+    "beforeImage": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    ],
+    "tags": ["baby", "portrait", "cute", "innocent"],
+    "category": "new",
+    "createdAt": "2024-01-24",
+    "filters": {
+      "primaryCategory": "baby",
+      "style": ["realistic"],
+      "pose": ["portrait"],
+      "background": ["studio"],
+      "god": null
+    }
+  },
+  {
+    "slug": "indian-man-professional",
+    "title": "Indian Man Professional Headshot",
+    "description": "Professional Indian man in business attire",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "good",
+      "leonardo": "average"
+    },
+    "prompt": "Professional headshot of Indian man, business suit, confident expression, studio lighting, clean background, high quality, corporate style",
+    "beforeImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop"
+    ],
+    "tags": ["man", "professional", "headshot", "business"],
+    "category": "new",
+    "createdAt": "2024-01-25",
+    "filters": {
+      "primaryCategory": "man",
+      "style": ["realistic"],
+      "pose": ["portrait"],
+      "background": ["studio"],
+      "god": null
+    }
+  },
+  {
+    "slug": "krishna-devotee",
+    "title": "With Lord Krishna",
+    "description": "Devotee with Lord Krishna in temple setting",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "good",
+      "leonardo": "average"
+    },
+    "prompt": "Devotee standing with Lord Krishna in peaceful temple courtyard, soft lighting, traditional attire, divine atmosphere, detailed composition, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop"
+    ],
+    "tags": ["krishna", "temple", "devotee", "divine"],
+    "category": "trending",
+    "createdAt": "2024-01-26",
+    "filters": {
+      "primaryCategory": "with-god",
+      "style": ["realistic"],
+      "pose": ["temple"],
+      "background": ["indian-temple"],
+      "god": "krishna"
+    }
+  },
+  {
+    "slug": "indian-couple-wedding",
+    "title": "Indian Couple Wedding",
+    "description": "Beautiful Indian couple in traditional wedding attire",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "best",
+      "leonardo": "good"
+    },
+    "prompt": "Indian couple in traditional wedding attire, bride in red lehenga, groom in sherwani, wedding ceremony, vibrant colors, detailed embroidery, festive atmosphere, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop"
+    ],
+    "tags": ["couple", "wedding", "traditional", "indian"],
+    "category": "trending",
+    "createdAt": "2024-01-27",
+    "filters": {
+      "primaryCategory": "couple",
+      "style": ["realistic"],
+      "pose": ["wedding"],
+      "background": ["temple", "village"],
+      "god": null
+    }
+  },
+  {
+    "slug": "indian-family-portrait",
+    "title": "Indian Family Portrait",
+    "description": "Happy Indian family together in traditional setting",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "best",
+      "midjourney": "good",
+      "leonardo": "good"
+    },
+    "prompt": "Happy Indian family portrait, parents and children, traditional attire, warm lighting, natural expressions, detailed composition, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1511497584788-876760111969?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=400&fit=crop"
+    ],
+    "tags": ["family", "portrait", "traditional", "indian"],
+    "category": "new",
+    "createdAt": "2024-01-28",
+    "filters": {
+      "primaryCategory": "family",
+      "style": ["realistic"],
+      "pose": ["portrait"],
+      "background": ["studio", "village"],
+      "god": null
+    }
+  },
+  {
+    "slug": "cute-pet-portrait",
+    "title": "Cute Pet Portrait",
+    "description": "Adorable pet in artistic style",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "best",
+      "midjourney": "good",
+      "leonardo": "good"
+    },
+    "prompt": "Cute pet portrait, adorable expression, soft lighting, detailed fur texture, natural background, high quality, professional photography",
+    "beforeImage": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    ],
+    "tags": ["pet", "portrait", "cute", "animal"],
+    "category": "new",
+    "createdAt": "2024-01-29",
+    "filters": {
+      "primaryCategory": "pet",
+      "style": ["realistic"],
+      "pose": ["portrait"],
+      "background": ["nature", "studio"],
+      "god": null
+    }
+  },
+  {
+    "slug": "anime-boy-character",
+    "title": "Anime Boy Character",
+    "description": "Stylish anime-style boy character design",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "good",
+      "leonardo": "average"
+    },
+    "prompt": "Anime-style boy character, expressive eyes, vibrant colors, clean line art, modern design, detailed illustration, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop"
+    ],
+    "tags": ["anime", "boy", "cartoon", "character"],
+    "category": "trending",
+    "createdAt": "2024-01-30",
+    "filters": {
+      "primaryCategory": "cartoon-anime",
+      "style": ["anime"],
+      "pose": ["portrait", "full-body"],
+      "background": ["nature"],
+      "god": null
+    }
+  },
+  {
+    "slug": "boy-ghibli-style",
+    "title": "Boy in Ghibli Style",
+    "description": "Young boy illustrated in Studio Ghibli anime style",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "average",
+      "leonardo": "average"
+    },
+    "prompt": "Young Indian boy in Studio Ghibli style, soft pastel colors, dreamy lighting, anime art style, gentle expression, magical atmosphere, 4K quality",
+    "beforeImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop"
+    ],
+    "tags": ["boy", "ghibli", "anime", "portrait"],
+    "category": "trending",
+    "createdAt": "2024-01-31",
+    "filters": {
+      "primaryCategory": "boy",
+      "style": ["ghibli", "anime"],
+      "pose": ["portrait"],
+      "background": ["nature"],
+      "god": null
+    }
+  },
+  {
+    "slug": "girl-anime-style",
+    "title": "Girl in Anime Style",
+    "description": "Beautiful Indian girl in modern anime art style",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "good",
+      "leonardo": "average"
+    },
+    "prompt": "Beautiful Indian girl in anime style, expressive eyes, vibrant colors, clean line art, modern design, detailed illustration, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop"
+    ],
+    "tags": ["girl", "anime", "portrait", "indian"],
+    "category": "new",
+    "createdAt": "2024-02-01",
+    "filters": {
+      "primaryCategory": "girl",
+      "style": ["anime"],
+      "pose": ["portrait"],
+      "background": ["nature", "city"],
+      "god": null
+    }
+  },
+  {
+    "slug": "baby-cute-portrait",
+    "title": "Cute Baby Portrait",
+    "description": "Adorable baby with innocent smile",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "best",
+      "midjourney": "average",
+      "leonardo": "good"
+    },
+    "prompt": "Cute baby portrait, innocent smile, soft lighting, pastel background, detailed features, professional photography, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    ],
+    "tags": ["baby", "portrait", "cute", "innocent"],
+    "category": "new",
+    "createdAt": "2024-02-02",
+    "filters": {
+      "primaryCategory": "baby",
+      "style": ["realistic"],
+      "pose": ["portrait"],
+      "background": ["studio"],
+      "god": null
+    }
+  },
+  {
+    "slug": "with-ram-devotee",
+    "title": "With Lord Ram",
+    "description": "Devotee with Lord Ram in temple",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "good",
+      "leonardo": "average"
+    },
+    "prompt": "Devotee with Lord Ram in temple setting, traditional attire, divine atmosphere, soft lighting, detailed composition, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop"
+    ],
+    "tags": ["ram", "temple", "devotee", "divine"],
+    "category": "trending",
+    "createdAt": "2024-02-03",
+    "filters": {
+      "primaryCategory": "with-god",
+      "style": ["realistic"],
+      "pose": ["temple"],
+      "background": ["indian-temple"],
+      "god": "ram"
+    }
+  },
+  {
+    "slug": "couple-romantic",
+    "title": "Romantic Couple",
+    "description": "Indian couple in romantic setting",
+    "bestModel": "ChatGPT",
+    "modelRatings": {
+      "chatgpt": "best",
+      "gemini": "good",
+      "midjourney": "best",
+      "leonardo": "good"
+    },
+    "prompt": "Romantic Indian couple, traditional attire, beautiful sunset background, warm lighting, intimate moment, detailed composition, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop"
+    ],
+    "tags": ["couple", "romantic", "traditional", "indian"],
+    "category": "new",
+    "createdAt": "2024-02-04",
+    "filters": {
+      "primaryCategory": "couple",
+      "style": ["realistic"],
+      "pose": ["cinematic"],
+      "background": ["nature", "village"],
+      "god": null
+    }
+  },
+  {
+    "slug": "pixar-character",
+    "title": "Pixar Style Character",
+    "description": "3D Pixar animation style character",
+    "bestModel": "Midjourney",
+    "modelRatings": {
+      "chatgpt": "good",
+      "gemini": "average",
+      "midjourney": "best",
+      "leonardo": "good"
+    },
+    "prompt": "Pixar animation style character, 3D rendered, expressive features, vibrant colors, smooth textures, detailed modeling, high quality",
+    "beforeImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop",
+    "exampleImages": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=400&fit=crop"
+    ],
+    "tags": ["pixar", "3d", "cartoon", "character"],
+    "category": "trending",
+    "createdAt": "2024-02-05",
+    "filters": {
+      "primaryCategory": "cartoon-anime",
+      "style": ["pixar", "3d-render"],
+      "pose": ["full-body"],
+      "background": ["nature"],
+      "god": null
+    }
+  }
+]
