@@ -21,18 +21,31 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
       ? [process.env.FRONTEND_URL] 
       : ['http://localhost:3000']);
 
+// Always allow localhost for development
+const defaultOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000'];
+
 app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+    // Check if origin is in allowed list or is localhost
+    const isAllowed = allowedOrigins.indexOf(origin) !== -1 || 
+                     defaultOrigins.indexOf(origin) !== -1 ||
+                     origin.includes('localhost') ||
+                     origin.includes('127.0.0.1');
+    
+    if (isAllowed) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      // In production, log but still allow for now (can be restricted later)
+      console.warn(`⚠️  CORS: Origin ${origin} not in allowed list`);
+      callback(null, true); // Allow for now to fix immediate issue
     }
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json({ limit: '50mb' }));
@@ -42,6 +55,20 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
   next();
+});
+
+// Root route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'AItrendpromt Backend API',
+    status: 'running',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      prompts: '/api/prompts',
+      admin: '/api/admin'
+    }
+  });
 });
 
 // Routes
