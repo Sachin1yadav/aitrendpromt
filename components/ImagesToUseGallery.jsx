@@ -45,7 +45,7 @@ export default function ImagesToUseGallery({ images, title }) {
             <div className="flex gap-4" style={{ width: 'max-content' }}>
               {images.map((imageUrl, index) => (
                 <div key={index} className="group relative flex-shrink-0">
-                  <div className="relative w-48 sm:w-56 md:w-64 aspect-square overflow-hidden rounded-xl border-2 border-gray-200 bg-gray-100 shadow-sm transition-all hover:border-blue-500 hover:shadow-xl hover:scale-105">
+                  <div className="relative w-32 sm:w-40 md:w-48 overflow-hidden rounded-xl border-2 border-gray-200 bg-gray-100 shadow-sm transition-all hover:border-blue-500 hover:shadow-xl hover:scale-105" style={{ aspectRatio: '9/16' }}>
                     <button
                       onClick={() => setSelectedImage(imageUrl)}
                       className="relative w-full h-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-xl"
@@ -55,8 +55,9 @@ export default function ImagesToUseGallery({ images, title }) {
                         alt={`Image to use ${index + 1}`}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, 256px"
+                        sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
                         loading="lazy"
+                        unoptimized={imageUrl?.includes('cloudinary.com')}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                       
