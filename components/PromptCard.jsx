@@ -13,8 +13,8 @@ export default function PromptCard({ prompt }) {
       scroll={false}
       className="group block rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-blue-300"
     >
-      <div className="relative mb-4 w-full overflow-hidden rounded-xl" style={{ aspectRatio: '9/16' }}>
-        <div className="grid grid-cols-2 gap-1 h-full">
+      <div className="relative mb-4 w-full flex justify-center">
+        <div className="grid grid-cols-2 gap-1" style={{ width: '400px', height: '350px' }}>
           <div className="relative overflow-hidden rounded-l-xl">
             <div className="absolute top-2 left-2 z-10 rounded-md bg-gray-900/70 backdrop-blur-sm px-2 py-1 text-[10px] font-semibold text-white shadow-sm">
               Before
@@ -24,7 +24,7 @@ export default function PromptCard({ prompt }) {
               alt={`${prompt.title} - Before`}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-110"
-              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 16.5vw"
+              sizes="200px"
               loading="lazy"
               unoptimized={beforeImage?.includes('cloudinary.com')}
             />
@@ -38,7 +38,7 @@ export default function PromptCard({ prompt }) {
               alt={`${prompt.title} - After`}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-110"
-              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 16.5vw"
+              sizes="200px"
               loading="lazy"
               unoptimized={afterImage?.includes('cloudinary.com')}
             />

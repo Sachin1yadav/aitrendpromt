@@ -72,13 +72,13 @@ export default async function PromptDetailPage({ params }) {
                   />
                 </div>
               </div>
-              <div className="relative w-full overflow-hidden rounded-2xl border-2 border-gray-300 shadow-lg group-hover:border-blue-400 transition-colors" style={{ aspectRatio: '9/16' }}>
+              <div className="relative overflow-hidden rounded-2xl border-2 border-gray-300 shadow-lg group-hover:border-blue-400 transition-colors mx-auto" style={{ width: '200px', height: '350px' }}>
                 <Image
                   src={prompt.beforeImage || "/placeholder.jpg"}
                   alt={`${prompt.title} - Before`}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="200px"
                   loading="lazy"
                   unoptimized={prompt.beforeImage?.includes('cloudinary.com')}
                 />
@@ -105,13 +105,13 @@ export default async function PromptDetailPage({ params }) {
                   />
                 </div>
               </div>
-              <div className="relative w-full overflow-hidden rounded-2xl border-2 border-green-400 shadow-lg group-hover:border-green-500 transition-colors" style={{ aspectRatio: '9/16' }}>
+              <div className="relative overflow-hidden rounded-2xl border-2 border-green-400 shadow-lg group-hover:border-green-500 transition-colors mx-auto" style={{ width: '200px', height: '350px' }}>
                 <Image
                   src={prompt.afterImage || "/placeholder.jpg"}
                   alt={`${prompt.title} - After`}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="200px"
                   loading="lazy"
                   unoptimized={prompt.afterImage?.includes('cloudinary.com')}
                 />

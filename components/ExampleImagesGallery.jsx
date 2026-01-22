@@ -57,7 +57,7 @@ export default function ExampleImagesGallery({ images, title }) {
             <div className="flex gap-4" style={{ width: 'max-content' }}>
               {images.map((imageUrl, index) => (
                 <div key={index} className="group relative flex-shrink-0">
-                  <div className="relative w-32 sm:w-40 md:w-48 overflow-hidden rounded-xl border-2 border-gray-200 bg-gray-100 shadow-sm transition-all hover:border-blue-500 hover:shadow-xl hover:scale-105" style={{ aspectRatio: '9/16' }}>
+                  <div className="relative overflow-hidden rounded-xl border-2 border-gray-200 bg-gray-100 shadow-sm transition-all hover:border-blue-500 hover:shadow-xl hover:scale-105 flex-shrink-0" style={{ width: '200px', height: '350px' }}>
                     <button
                       onClick={() => setSelectedImage(imageUrl)}
                       className="relative w-full h-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-xl"
@@ -67,7 +67,7 @@ export default function ExampleImagesGallery({ images, title }) {
                         alt={`Example input image ${index + 1} for ${title}`}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
+                        sizes="200px"
                         loading="lazy"
                         unoptimized={imageUrl?.includes('cloudinary.com')}
                       />
