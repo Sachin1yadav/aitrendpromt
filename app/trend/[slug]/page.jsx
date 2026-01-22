@@ -42,80 +42,63 @@ export default async function PromptDetailPage({ params }) {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-10 max-w-4xl">
-        <h1 className="mb-3 text-5xl font-bold text-gray-900">{prompt.title}</h1>
-        <p className="mb-10 text-xl text-gray-600">{prompt.description}</p>
+      <main className="container mx-auto px-4 py-12 max-w-5xl">
+        <div className="mb-10 text-center">
+          <h1 className="mb-4 text-5xl font-bold text-gray-900">{prompt.title}</h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">{prompt.description}</p>
+        </div>
 
         {/* Before & After - Moved to top for better UX */}
-        <section className="mb-10">
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-3xl font-bold text-gray-900">Before & After</h2>
+        <section className="mb-12">
+          <div className="mb-8 text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-2">Before & After</h2>
+            <p className="text-gray-600">See the transformation</p>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <div className="group relative">
-              <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-start">
+            <div className="group relative flex flex-col items-center">
+              <div className="mb-4 w-full flex items-center justify-between">
+                <div className="text-base font-bold text-gray-800 uppercase tracking-wider">Before</div>
                 <DownloadImageButton 
                   imageUrl={prompt.beforeImage || "/placeholder.jpg"} 
                   filename={`${prompt.slug}-before.jpg`}
-                  variant="overlay"
-                  size="md"
+                  variant="ghost"
+                  size="sm"
                 />
               </div>
-              <div className="mb-3 flex items-center justify-between">
-                <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Before</div>
-                <div className="opacity-100 group-hover:opacity-0 transition-opacity">
-                  <DownloadImageButton 
-                    imageUrl={prompt.beforeImage || "/placeholder.jpg"} 
-                    filename={`${prompt.slug}-before.jpg`}
-                    variant="ghost"
-                    size="sm"
-                  />
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-2xl border-2 border-gray-300 shadow-lg group-hover:border-blue-400 transition-colors mx-auto" style={{ width: '200px', height: '350px' }}>
+              <div className="relative overflow-hidden rounded-2xl border-3 border-gray-300 shadow-xl group-hover:border-blue-500 group-hover:shadow-2xl transition-all duration-300" style={{ width: '200px', height: '350px' }}>
                 <Image
                   src={prompt.beforeImage || "/placeholder.jpg"}
                   alt={`${prompt.title} - Before`}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
                   sizes="200px"
                   loading="lazy"
                   unoptimized={prompt.beforeImage?.includes('cloudinary.com')}
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
-            <div className="group relative">
-              <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="group relative flex flex-col items-center">
+              <div className="mb-4 w-full flex items-center justify-between">
+                <div className="text-base font-bold text-green-700 uppercase tracking-wider">After</div>
                 <DownloadImageButton 
                   imageUrl={prompt.afterImage || "/placeholder.jpg"} 
                   filename={`${prompt.slug}-after.jpg`}
-                  variant="overlay"
-                  size="md"
+                  variant="ghost"
+                  size="sm"
                 />
               </div>
-              <div className="mb-3 flex items-center justify-between">
-                <div className="text-sm font-semibold text-green-700 uppercase tracking-wide">After</div>
-                <div className="opacity-100 group-hover:opacity-0 transition-opacity">
-                  <DownloadImageButton 
-                    imageUrl={prompt.afterImage || "/placeholder.jpg"} 
-                    filename={`${prompt.slug}-after.jpg`}
-                    variant="ghost"
-                    size="sm"
-                  />
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-2xl border-2 border-green-400 shadow-lg group-hover:border-green-500 transition-colors mx-auto" style={{ width: '200px', height: '350px' }}>
+              <div className="relative overflow-hidden rounded-2xl border-3 border-green-400 shadow-xl group-hover:border-green-600 group-hover:shadow-2xl transition-all duration-300" style={{ width: '200px', height: '350px' }}>
                 <Image
                   src={prompt.afterImage || "/placeholder.jpg"}
                   alt={`${prompt.title} - After`}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
                   sizes="200px"
                   loading="lazy"
                   unoptimized={prompt.afterImage?.includes('cloudinary.com')}
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </div>
@@ -191,4 +174,5 @@ export default async function PromptDetailPage({ params }) {
     </div>
   );
 }
+
 

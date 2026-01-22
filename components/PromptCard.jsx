@@ -11,12 +11,13 @@ export default function PromptCard({ prompt }) {
       href={`/trend/${prompt.slug}`}
       prefetch={true}
       scroll={false}
-      className="group block rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-blue-300"
+      className="group block rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-400"
     >
+      {/* Image Container - Centered */}
       <div className="relative mb-4 w-full flex justify-center">
-        <div className="grid grid-cols-2 gap-1" style={{ width: '400px', height: '350px' }}>
-          <div className="relative overflow-hidden rounded-l-xl">
-            <div className="absolute top-2 left-2 z-10 rounded-md bg-gray-900/70 backdrop-blur-sm px-2 py-1 text-[10px] font-semibold text-white shadow-sm">
+        <div className="grid grid-cols-2 gap-2" style={{ width: '410px', maxWidth: '100%', height: '350px' }}>
+          <div className="relative overflow-hidden rounded-xl shadow-md">
+            <div className="absolute top-2 left-2 z-10 rounded-md bg-black/70 backdrop-blur-sm px-2.5 py-1 text-[11px] font-bold text-white shadow-lg">
               Before
             </div>
             <Image
@@ -29,8 +30,8 @@ export default function PromptCard({ prompt }) {
               unoptimized={beforeImage?.includes('cloudinary.com')}
             />
           </div>
-          <div className="relative overflow-hidden rounded-r-xl">
-            <div className="absolute top-2 right-2 z-10 rounded-md bg-green-600/90 backdrop-blur-sm px-2 py-1 text-[10px] font-semibold text-white shadow-sm">
+          <div className="relative overflow-hidden rounded-xl shadow-md">
+            <div className="absolute top-2 right-2 z-10 rounded-md bg-green-600/90 backdrop-blur-sm px-2.5 py-1 text-[11px] font-bold text-white shadow-lg">
               After
             </div>
             <Image
@@ -45,13 +46,17 @@ export default function PromptCard({ prompt }) {
           </div>
         </div>
       </div>
-      <h3 className="mb-2 text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-1">
-        {prompt.title}
-      </h3>
-      <p className="mb-4 text-sm text-gray-600 line-clamp-2 leading-relaxed">{prompt.description}</p>
-      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-        <ModelBadge model={prompt.bestModel} rating="best" size="sm" />
-        <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">{prompt.category}</span>
+      
+      {/* Content */}
+      <div className="space-y-3">
+        <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-1">
+          {prompt.title}
+        </h3>
+        <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed min-h-[2.5rem]">{prompt.description}</p>
+        <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+          <ModelBadge model={prompt.bestModel} rating="best" size="sm" />
+          <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{prompt.category}</span>
+        </div>
       </div>
     </Link>
   );

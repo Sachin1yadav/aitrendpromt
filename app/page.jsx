@@ -79,10 +79,10 @@ function HomePageContent() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-        <div className="container mx-auto px-4 py-5">
-          <h1 className="text-3xl font-bold text-gray-900">AItrendpromt</h1>
-          <p className="mt-1 text-sm text-gray-600">Discover viral prompts with real examples</p>
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div className="container mx-auto px-4 py-6">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AItrendpromt</h1>
+          <p className="mt-2 text-base text-gray-600">Discover viral AI prompts with real examples</p>
         </div>
       </header>
 
@@ -129,42 +129,51 @@ function HomePageContent() {
               <FilteredResults filters={filters} searchQuery={searchQuery} />
             ) : (
               <>
-                <section className="mb-12">
-                  <h2 className="mb-6 text-2xl font-bold text-gray-900">Trending Today</h2>
+                <section className="mb-16">
+                  <div className="mb-8">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-2">🔥 Trending Today</h2>
+                    <p className="text-gray-600">Most popular prompts right now</p>
+                  </div>
                   {trending.length > 0 ? (
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 justify-items-center">
                       {trending.map((prompt) => (
                         <PromptCard key={prompt.slug || prompt._id} prompt={prompt} />
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500">No trending prompts yet.</p>
+                    <p className="text-gray-500 text-center py-8">No trending prompts yet.</p>
                   )}
                 </section>
 
-                <section className="mb-12">
-                  <h2 className="mb-6 text-2xl font-bold text-gray-900">New Prompts</h2>
+                <section className="mb-16">
+                  <div className="mb-8">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-2">✨ New Prompts</h2>
+                    <p className="text-gray-600">Freshly added trending prompts</p>
+                  </div>
                   {newPrompts.length > 0 ? (
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 justify-items-center">
                       {newPrompts.map((prompt) => (
                         <PromptCard key={prompt.slug || prompt._id} prompt={prompt} />
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500">No new prompts yet.</p>
+                    <p className="text-gray-500 text-center py-8">No new prompts yet.</p>
                   )}
                 </section>
 
-                <section className="mb-12">
-                  <h2 className="mb-6 text-2xl font-bold text-gray-900">Old Viral Trends</h2>
+                <section className="mb-16">
+                  <div className="mb-8">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-2">📦 Old Viral Trends</h2>
+                    <p className="text-gray-600">Classic prompts that went viral</p>
+                  </div>
                   {archive.length > 0 ? (
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 justify-items-center">
                       {archive.map((prompt) => (
                         <PromptCard key={prompt.slug || prompt._id} prompt={prompt} />
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500">No archived prompts yet.</p>
+                    <p className="text-gray-500 text-center py-8">No archived prompts yet.</p>
                   )}
                 </section>
               </>
