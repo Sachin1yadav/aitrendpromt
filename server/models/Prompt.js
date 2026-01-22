@@ -6,7 +6,8 @@ const promptSchema = new mongoose.Schema({
     required: true,
     unique: true,
     trim: true,
-    lowercase: true
+    lowercase: true,
+    index: true
   },
   title: {
     type: String,
@@ -107,8 +108,7 @@ const promptSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index for faster queries
-promptSchema.index({ slug: 1 });
+// Index for faster queries (slug index already created by unique: true)
 promptSchema.index({ category: 1 });
 promptSchema.index({ 'filters.primaryCategory': 1 });
 
