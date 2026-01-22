@@ -30,26 +30,24 @@ export default function ExampleImagesGallery({ images, title }) {
 
   return (
     <>
-      <section className="mb-10">
-        <div className="mb-6 flex items-center justify-between">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">{title}</h2>
-            <p className="text-gray-600">
-              Use these example images as reference when generating with this prompt
-            </p>
-          </div>
-          {images.length > 5 && (
-            <div className="hidden sm:flex items-center gap-2 text-sm text-gray-500">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-              </svg>
-              <span>Scroll to see more</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-          )}
+      <section className="mb-6">
+        <div className="mb-4">
+          <h2 className="text-xl font-bold text-gray-900 mb-1">{title}</h2>
+          <p className="text-sm text-gray-600">
+            Use these example images as reference when generating with this prompt
+          </p>
         </div>
+        {images.length > 5 && (
+          <div className="hidden sm:flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+            </svg>
+            <span>Scroll to see more</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        )}
         
         {/* Horizontal Scrollable Container */}
         <div className="relative">
@@ -57,7 +55,7 @@ export default function ExampleImagesGallery({ images, title }) {
             <div className="flex gap-4" style={{ width: 'max-content' }}>
               {images.map((imageUrl, index) => (
                 <div key={index} className="group relative flex-shrink-0">
-                  <div className="relative overflow-hidden rounded-xl border-2 border-gray-200 bg-gray-100 shadow-sm transition-all hover:border-blue-500 hover:shadow-xl hover:scale-105 flex-shrink-0" style={{ width: '200px', height: '350px' }}>
+                  <div className="relative overflow-hidden rounded-lg border-2 border-gray-200 bg-gray-100 shadow-sm transition-all hover:border-blue-500 hover:shadow-xl hover:scale-105 flex-shrink-0" style={{ width: '280px', height: '400px' }}>
                     <button
                       onClick={() => setSelectedImage(imageUrl)}
                       className="relative w-full h-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-xl"
@@ -67,7 +65,7 @@ export default function ExampleImagesGallery({ images, title }) {
                         alt={`Example input image ${index + 1} for ${title}`}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        sizes="200px"
+                        sizes="280px"
                         loading="lazy"
                         unoptimized={imageUrl?.includes('cloudinary.com')}
                       />
@@ -107,9 +105,9 @@ export default function ExampleImagesGallery({ images, title }) {
           <div className="absolute right-0 top-0 bottom-4 w-20 pointer-events-none bg-gradient-to-l from-white to-transparent"></div>
         </div>
 
-        <div className="mt-6 rounded-xl bg-blue-50 border border-blue-200 p-4">
-          <p className="text-sm text-blue-800 text-center">
-            <span className="font-semibold">💡 Pro Tip:</span> Use these example images as reference when uploading to your AI tool. Similar style and composition will give you the best results! Scroll horizontally to see all {images.length} example images.
+        <div className="mt-4 rounded-lg bg-blue-50 border border-blue-200 p-3">
+          <p className="text-xs text-blue-800 text-center">
+            <span className="font-semibold">💡 Pro Tip:</span> Use these as reference. Scroll to see all {images.length} images.
           </p>
         </div>
       </section>

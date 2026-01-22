@@ -9,30 +9,30 @@ export default function ModelRatings({ prompt }) {
   ];
 
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-      <h3 className="mb-5 text-xl font-bold text-gray-900">Best AI Model for this Trend</h3>
-      <div className="flex flex-wrap gap-3 mb-6">
+    <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+      <h3 className="mb-3 text-lg font-bold text-gray-900">Best AI Model</h3>
+      <div className="flex flex-wrap gap-2 mb-4">
         {models.map((model) => (
           <ModelBadge
             key={model.key}
             model={model.name}
             rating={prompt.modelRatings[model.key]}
-            size="md"
+            size="sm"
           />
         ))}
       </div>
-      <div className="pt-5 border-t border-gray-100 space-y-2 text-sm text-gray-600">
+      <div className="pt-3 border-t border-gray-100 space-y-1.5 text-xs text-gray-600">
         <p>
-          <span className="font-semibold text-green-700">🟢 Works best</span> - Recommended for this trend
+          <span className="font-semibold text-green-700">🟢 Works best</span> - Recommended
         </p>
         <p>
-          <span className="font-semibold text-blue-700">🔵 Good</span> - Produces good results
+          <span className="font-semibold text-blue-700">🔵 Good</span> - Good results
         </p>
         <p>
-          <span className="font-semibold text-yellow-700">🟡 Average</span> - Acceptable results
+          <span className="font-semibold text-yellow-700">🟡 Average</span> - Acceptable
         </p>
         <p>
-          <span className="font-semibold text-red-700">🔴 Not recommended</span> - May not produce desired results
+          <span className="font-semibold text-red-700">🔴 Not recommended</span> - May not work well
         </p>
       </div>
     </div>
