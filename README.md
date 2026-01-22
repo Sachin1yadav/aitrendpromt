@@ -81,3 +81,4 @@ Deploy to Vercel:
 ---
 
 Simple, clean, and fast. No backend needed.
+# aitrendpromt
