@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm"]
+
+[phases.install]
+cmds = ["npm install --production --no-optional"]
+
+[phases.build]
+cmds = ["echo 'Backend - skipping Next.js build'"]
+
+[start]
+cmd = "node server/index.js"
+

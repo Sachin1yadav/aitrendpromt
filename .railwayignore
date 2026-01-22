@@ -1,0 +1,16 @@
+.next
+out
+node_modules/.cache
+app
+components
+lib
+public
+*.md
+!README.md
+vercel.json
+next.config.js
+postcss.config.mjs
+tailwind.config.js
+eslint.config.mjs
+jsconfig.json
+
