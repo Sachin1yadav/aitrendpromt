@@ -105,7 +105,7 @@ export default async function PromptDetailPage({ params }) {
                   />
                 </div>
               </div>
-              <div className="relative aspect-video w-full overflow-hidden rounded-2xl border-2 border-green-400 shadow-lg group-hover:border-green-500 transition-colors">
+              <div className="relative w-full overflow-hidden rounded-2xl border-2 border-green-400 shadow-lg group-hover:border-green-500 transition-colors" style={{ aspectRatio: '9/16' }}>
                 <Image
                   src={prompt.afterImage || "/placeholder.jpg"}
                   alt={`${prompt.title} - After`}
@@ -113,6 +113,7 @@ export default async function PromptDetailPage({ params }) {
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
+                  unoptimized={prompt.afterImage?.includes('cloudinary.com')}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
               </div>
