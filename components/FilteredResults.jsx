@@ -1,49 +1,65 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 import CopyButton from "./CopyButton";
-import { matchesFilters, getActiveFilterCount, generatePromptFromFilters } from "@/lib/filters";
-import { getAllPrompts } from "@/lib/prompts";
+import { getActiveFilterCount, generatePromptFromFilters } from "@/lib/filters";
+import { getAllPrompts } from "@/lib/api";
 
 export default function FilteredResults({ filters, searchQuery }) {
-  const allPrompts = useMemo(() => getAllPrompts(), []);
+  const [filteredPrompts, setFilteredPrompts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const filteredPrompts = useMemo(() => {
-    let results = allPrompts;
-
-    // Apply search first if exists
-    if (searchQuery?.trim()) {
-      const lowerQuery = searchQuery.toLowerCase();
-      results = results.filter(
-        (p) =>
-          p.title.toLowerCase().includes(lowerQuery) ||
-          p.description.toLowerCase().includes(lowerQuery) ||
-          p.tags?.some((tag) => tag.toLowerCase().includes(lowerQuery))
-      );
+  useEffect(() => {
+    async function fetchFilteredPrompts() {
+      setLoading(true);
+      try {
+        const apiFilters = {
+          search: searchQuery?.trim() || undefined,
+          primaryCategory: filters.primaryCategory || undefined,
+          style: filters.style?.length > 0 ? filters.style : undefined,
+          pose: filters.pose?.length > 0 ? filters.pose : undefined,
+          background: filters.background?.length > 0 ? filters.background : undefined,
+          god: filters.god || undefined,
+        };
+        
+        // Remove undefined values
+        Object.keys(apiFilters).forEach(key => 
+          apiFilters[key] === undefined && delete apiFilters[key]
+        );
+        
+        const results = await getAllPrompts(apiFilters);
+        setFilteredPrompts(results);
+      } catch (error) {
+        console.error("Error fetching filtered prompts:", error);
+        setFilteredPrompts([]);
+      } finally {
+        setLoading(false);
+      }
     }
-
-    // Apply filters
-    const hasActiveFilters = getActiveFilterCount(filters) > 0;
-    if (hasActiveFilters) {
-      results = results.filter((prompt) => matchesFilters(prompt, filters));
-    }
-
-    return results;
-  }, [allPrompts, filters, searchQuery]);
+    
+    fetchFilteredPrompts();
+  }, [filters, searchQuery]);
 
   const activeFilterCount = useMemo(() => getActiveFilterCount(filters), [filters]);
   const generatedPrompt = useMemo(() => generatePromptFromFilters(filters), [filters]);
 
+  if (loading) {
+    return (
+      <div className="text-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading results...</p>
+      </div>
+    );
+  }
+
   return (
     <div>
-      {/* Results Grid */}
-
       {/* Results Grid */}
       {filteredPrompts.length > 0 ? (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredPrompts.map((prompt) => (
-            <PromptCard key={prompt.slug} prompt={prompt} />
+            <PromptCard key={prompt.slug || prompt._id} prompt={prompt} />
           ))}
         </div>
       ) : (

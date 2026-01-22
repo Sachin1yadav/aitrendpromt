@@ -7,7 +7,7 @@ import SearchBar from "@/components/SearchBar";
 import PrimaryCategoryFilter from "@/components/PrimaryCategoryFilter";
 import SecondaryFilters from "@/components/SecondaryFilters";
 import FilteredResults from "@/components/FilteredResults";
-import { getPromptsByCategory } from "@/lib/prompts";
+import { getAllPrompts } from "@/lib/api";
 import {
   createEmptyFilters,
   queryStringToFilters,
@@ -21,6 +21,32 @@ function HomePageContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState(() => queryStringToFilters(searchParams));
   const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [trending, setTrending] = useState([]);
+  const [newPrompts, setNewPrompts] = useState([]);
+  const [archive, setArchive] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch prompts on mount
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      try {
+        const [trendingData, newData, archiveData] = await Promise.all([
+          getAllPrompts({ category: "trending" }),
+          getAllPrompts({ category: "new" }),
+          getAllPrompts({ category: "archive" })
+        ]);
+        setTrending(trendingData);
+        setNewPrompts(newData);
+        setArchive(archiveData);
+      } catch (error) {
+        console.error("Error fetching prompts:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   // Update URL when filters change
   useEffect(() => {
@@ -50,10 +76,6 @@ function HomePageContent() {
 
   const activeFilterCount = useMemo(() => getActiveFilterCount(filters), [filters]);
   const hasActiveFilters = activeFilterCount > 0 || searchQuery.trim().length > 0;
-
-  const trending = useMemo(() => getPromptsByCategory("trending"), []);
-  const newPrompts = useMemo(() => getPromptsByCategory("new"), []);
-  const archive = useMemo(() => getPromptsByCategory("archive"), []);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -98,35 +120,52 @@ function HomePageContent() {
         <div>
           {/* Main Content */}
           <div>
-            {hasActiveFilters ? (
+            {loading ? (
+              <div className="text-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <p className="text-gray-600">Loading prompts...</p>
+              </div>
+            ) : hasActiveFilters ? (
               <FilteredResults filters={filters} searchQuery={searchQuery} />
             ) : (
               <>
                 <section className="mb-12">
                   <h2 className="mb-6 text-2xl font-bold text-gray-900">Trending Today</h2>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {trending.map((prompt) => (
-                      <PromptCard key={prompt.slug} prompt={prompt} />
-                    ))}
-                  </div>
+                  {trending.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                      {trending.map((prompt) => (
+                        <PromptCard key={prompt.slug || prompt._id} prompt={prompt} />
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-gray-500">No trending prompts yet.</p>
+                  )}
                 </section>
 
                 <section className="mb-12">
                   <h2 className="mb-6 text-2xl font-bold text-gray-900">New Prompts</h2>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {newPrompts.map((prompt) => (
-                      <PromptCard key={prompt.slug} prompt={prompt} />
-                    ))}
-                  </div>
+                  {newPrompts.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                      {newPrompts.map((prompt) => (
+                        <PromptCard key={prompt.slug || prompt._id} prompt={prompt} />
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-gray-500">No new prompts yet.</p>
+                  )}
                 </section>
 
                 <section className="mb-12">
                   <h2 className="mb-6 text-2xl font-bold text-gray-900">Old Viral Trends</h2>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {archive.map((prompt) => (
-                      <PromptCard key={prompt.slug} prompt={prompt} />
-                    ))}
-                  </div>
+                  {archive.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                      {archive.map((prompt) => (
+                        <PromptCard key={prompt.slug || prompt._id} prompt={prompt} />
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-gray-500">No archived prompts yet.</p>
+                  )}
                 </section>
               </>
             )}

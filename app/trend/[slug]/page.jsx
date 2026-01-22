@@ -4,19 +4,26 @@ import { notFound } from "next/navigation";
 import CopyButton from "@/components/CopyButton";
 import ModelRatings from "@/components/ModelRatings";
 import ExampleImagesGallery from "@/components/ExampleImagesGallery";
+import ImagesToUseGallery from "@/components/ImagesToUseGallery";
 import DownloadImageButton from "@/components/DownloadImageButton";
-import { getPromptBySlug, getAllPrompts } from "@/lib/prompts";
+import { getPromptBySlug, getAllSlugs } from "@/lib/api";
 
-export const dynamic = 'force-static';
-export const dynamicParams = false;
+export const dynamic = 'force-dynamic'; // Changed to dynamic for API fetching
+export const revalidate = 60; // Revalidate every 60 seconds
 
 export async function generateStaticParams() {
-  return getAllPrompts().map((prompt) => ({ slug: prompt.slug }));
+  try {
+    const slugs = await getAllSlugs();
+    return slugs.map((slug) => ({ slug }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return [];
+  }
 }
 
 export default async function PromptDetailPage({ params }) {
   const { slug } = await params;
-  const prompt = getPromptBySlug(slug);
+  const prompt = await getPromptBySlug(slug);
 
   if (!prompt) {
     notFound();
@@ -39,14 +46,7 @@ export default async function PromptDetailPage({ params }) {
         <h1 className="mb-3 text-5xl font-bold text-gray-900">{prompt.title}</h1>
         <p className="mb-10 text-xl text-gray-600">{prompt.description}</p>
 
-        {/* Example Input Images */}
-        {prompt.exampleImages && prompt.exampleImages.length > 0 && (
-          <ExampleImagesGallery 
-            images={prompt.exampleImages} 
-            title="Example Input Images"
-          />
-        )}
-
+        {/* Before & After - Moved to top for better UX */}
         <section className="mb-10">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-3xl font-bold text-gray-900">Before & After</h2>
@@ -118,6 +118,22 @@ export default async function PromptDetailPage({ params }) {
             </div>
           </div>
         </section>
+
+        {/* Images You Should Use */}
+        {prompt.imgshoulduse && prompt.imgshoulduse.length > 0 && (
+          <ImagesToUseGallery 
+            images={prompt.imgshoulduse} 
+            title="Images You Should Use"
+          />
+        )}
+
+        {/* Example Input Images */}
+        {prompt.exampleImages && prompt.exampleImages.length > 0 && (
+          <ExampleImagesGallery 
+            images={prompt.exampleImages} 
+            title="Example Output Images"
+          />
+        )}
 
         <section className="mb-10">
           <ModelRatings prompt={prompt} />
