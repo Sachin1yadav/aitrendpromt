@@ -10,7 +10,7 @@
     "start": "next start",
     "start:server": "node server/index.js",
     "seed": "node server/scripts/seed.js",
-    "lint": "eslint",
+    "lint": "eslint"
   },
   "dependencies": {
     "concurrently": "^9.2.1",
