@@ -15,7 +15,7 @@ export default function PromptCard({ prompt }) {
     >
       {/* Image Container - Centered */}
       <div className="relative mb-4 w-full flex justify-center">
-        <div className="grid grid-cols-2 gap-2" style={{ width: '410px', maxWidth: '100%', height: '350px' }}>
+        <div className="grid grid-cols-2 gap-2" style={{ width: 'min(410px, 100%)', height: '350px' }}>
           <div className="relative overflow-hidden rounded-xl shadow-md">
             <div className="absolute top-2 left-2 z-10 rounded-md bg-black/70 backdrop-blur-sm px-2.5 py-1 text-[11px] font-bold text-white shadow-lg">
               Before

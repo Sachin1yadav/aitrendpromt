@@ -65,7 +65,7 @@ export default async function PromptDetailPage({ params }) {
                   size="sm"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-2xl border-3 border-gray-300 shadow-xl group-hover:border-blue-500 group-hover:shadow-2xl transition-all duration-300" style={{ width: '200px', height: '350px' }}>
+              <div className="relative overflow-hidden rounded-2xl border-2 border-gray-300 shadow-xl group-hover:border-blue-500 group-hover:shadow-2xl transition-all duration-300" style={{ width: '200px', height: '350px' }}>
                 <Image
                   src={prompt.beforeImage || "/placeholder.jpg"}
                   alt={`${prompt.title} - Before`}
@@ -88,7 +88,7 @@ export default async function PromptDetailPage({ params }) {
                   size="sm"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-2xl border-3 border-green-400 shadow-xl group-hover:border-green-600 group-hover:shadow-2xl transition-all duration-300" style={{ width: '200px', height: '350px' }}>
+              <div className="relative overflow-hidden rounded-2xl border-2 border-green-400 shadow-xl group-hover:border-green-600 group-hover:shadow-2xl transition-all duration-300" style={{ width: '200px', height: '350px' }}>
                 <Image
                   src={prompt.afterImage || "/placeholder.jpg"}
                   alt={`${prompt.title} - After`}
