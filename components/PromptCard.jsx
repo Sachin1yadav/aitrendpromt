@@ -1,16 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import ModelBadge from "./ModelBadge";
+import { trackPromptClick } from "@/lib/tracking";
 
 export default function PromptCard({ prompt }) {
   const beforeImage = prompt.beforeImage || prompt.images?.[0] || "/placeholder.jpg";
   const afterImage = prompt.afterImage || prompt.images?.[1] || prompt.images?.[0] || "/placeholder.jpg";
+  
+  const handleClick = () => {
+    trackPromptClick(prompt.slug, prompt.title, prompt.category);
+  };
   
   return (
     <Link
       href={`/trend/${prompt.slug}`}
       prefetch={true}
       scroll={false}
+      onClick={handleClick}
       className="group block rounded-lg border border-gray-200 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:border-blue-400"
     >
       {/* Image Container - Wider, less tall */}
@@ -22,7 +30,7 @@ export default function PromptCard({ prompt }) {
             </div>
             <Image
               src={beforeImage}
-              alt={`${prompt.title} - Before`}
+              alt={`${prompt.title} - Before: Original input image for AI prompt`}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
@@ -36,7 +44,7 @@ export default function PromptCard({ prompt }) {
             </div>
             <Image
               src={afterImage}
-              alt={`${prompt.title} - After`}
+              alt={`${prompt.title} - After: AI generated result using ${prompt.bestModel || 'AI'} prompt`}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"

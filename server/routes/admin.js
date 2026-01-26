@@ -15,8 +15,14 @@ const authenticateAdmin = (req, res, next) => {
   next();
 };
 
-// Apply auth to all admin routes
-router.use(authenticateAdmin);
+// Apply auth to all admin routes (except analytics stats which should be accessible)
+router.use((req, res, next) => {
+  // Allow analytics stats without auth for now (you can add auth later if needed)
+  if (req.path === '/analytics/stats' || req.path.startsWith('/analytics/')) {
+    return next();
+  }
+  authenticateAdmin(req, res, next);
+});
 
 // GET all prompts (admin view)
 router.get('/prompts', async (req, res, next) => {
@@ -93,22 +99,61 @@ router.put('/prompts/:slug', async (req, res, next) => {
   try {
     const { slug } = req.params;
     
-    // Ensure slug is lowercase if provided in body
-    if (req.body.slug) {
-      req.body.slug = req.body.slug.toLowerCase().trim();
-    }
+    console.log('=== UPDATE REQUEST START ===');
+    console.log('Slug:', slug);
+    console.log('req.body.trendRank:', req.body.trendRank, 'type:', typeof req.body.trendRank);
     
-    const prompt = await Prompt.findOneAndUpdate(
-      { slug: slug.toLowerCase() },
-      req.body,
-      { new: true, runValidators: true }
-    );
-    
-    if (!prompt) {
+    // Find the existing prompt first
+    const existingPrompt = await Prompt.findOne({ slug: slug.toLowerCase() });
+    if (!existingPrompt) {
       return res.status(404).json({ success: false, error: 'Prompt not found' });
     }
     
-    res.json({ success: true, data: prompt });
+    console.log('Existing prompt trendRank:', existingPrompt.trendRank);
+    
+    // Handle trendRank explicitly - parse it correctly
+    if (req.body.trendRank !== undefined && req.body.trendRank !== null) {
+      const trendRankValue = parseInt(String(req.body.trendRank));
+      if (!isNaN(trendRankValue)) {
+        const clampedValue = Math.max(0, Math.min(1000, trendRankValue));
+        console.log('Setting trendRank to:', clampedValue);
+        existingPrompt.trendRank = clampedValue;
+      }
+    }
+    
+    // Update other fields
+    const fieldsToUpdate = [
+      'title', 'description', 'bestModel', 'prompt', 'beforeImage', 'afterImage',
+      'exampleImages', 'imgshoulduse', 'tags', 'category', 'modelRatings', 'filters'
+    ];
+    
+    fieldsToUpdate.forEach(field => {
+      if (req.body[field] !== undefined) {
+        if (field === 'slug' && req.body[field]) {
+          existingPrompt[field] = req.body[field].toLowerCase().trim();
+        } else {
+          existingPrompt[field] = req.body[field];
+        }
+      }
+    });
+    
+    // Handle slug separately
+    if (req.body.slug) {
+      existingPrompt.slug = req.body.slug.toLowerCase().trim();
+    }
+    
+    console.log('Before save - trendRank:', existingPrompt.trendRank);
+    
+    // Save the document
+    await existingPrompt.save();
+    
+    console.log('After save - trendRank:', existingPrompt.trendRank);
+    
+    // Fetch fresh from DB to verify
+    const verifiedPrompt = await Prompt.findOne({ slug: slug.toLowerCase() }).lean();
+    console.log('Verified from DB - trendRank:', verifiedPrompt.trendRank);
+    
+    res.json({ success: true, data: verifiedPrompt });
   } catch (error) {
     if (error.name === 'ValidationError') {
       const errors = Object.values(error.errors).map(e => e.message);

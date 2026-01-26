@@ -29,7 +29,19 @@ export default function FilteredResults({ filters, searchQuery }) {
         );
         
         const results = await getAllPrompts(apiFilters);
-        setFilteredPrompts(results);
+        
+        // Sort by trendRank (descending), then by createdAt (descending) as fallback
+        const sortedResults = [...results].sort((a, b) => {
+          const rankA = a.trendRank || 0;
+          const rankB = b.trendRank || 0;
+          if (rankA !== rankB) {
+            return rankB - rankA; // Higher rank first
+          }
+          // If same rank, sort by createdAt (newer first)
+          return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
+        });
+        
+        setFilteredPrompts(sortedResults);
       } catch (error) {
         console.error("Error fetching filtered prompts:", error);
         setFilteredPrompts([]);

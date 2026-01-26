@@ -7,6 +7,7 @@ import {
   BACKGROUND_FILTERS,
   GOD_FILTERS,
 } from "@/lib/filters";
+import { trackFilterApply } from "@/lib/tracking";
 
 export default function SecondaryFilters({
   filters,
@@ -34,13 +35,22 @@ export default function SecondaryFilters({
       ? current.filter((v) => v !== value)
       : [...current, value];
     onFilterChange({ ...filters, [filterType]: updated });
+    // Track filter apply/remove
+    if (!current.includes(value)) {
+      trackFilterApply(filterType, value);
+    }
   };
 
   const toggleGodFilter = (godId) => {
+    const newGod = filters.god === godId ? null : godId;
     onFilterChange({
       ...filters,
-      god: filters.god === godId ? null : godId,
+      god: newGod,
     });
+    // Track filter change
+    if (newGod) {
+      trackFilterApply('god', newGod);
+    }
   };
 
   const FilterGroup = ({ title, items, selectedItems, onToggle, isSingle = false }) => {

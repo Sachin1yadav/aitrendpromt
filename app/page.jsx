@@ -16,6 +16,10 @@ import {
   filtersToQueryString,
   getActiveFilterCount,
 } from "@/lib/filters";
+import { trackPageView, trackSearch, trackFilterApply } from "@/lib/tracking";
+import InstagramLink from "@/components/InstagramLink";
+import HomepageSchema from "./homepage-schema";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
 
 function HomePageContent() {
   const router = useRouter();
@@ -28,6 +32,11 @@ function HomePageContent() {
   const [archive, setArchive] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Track page view on mount
+  useEffect(() => {
+    trackPageView('homepage');
+  }, []);
+
   // Fetch prompts on mount
   useEffect(() => {
     async function fetchData() {
@@ -38,9 +47,23 @@ function HomePageContent() {
           getAllPrompts({ category: "new" }),
           getAllPrompts({ category: "archive" })
         ]);
-        setTrending(trendingData);
-        setNewPrompts(newData);
-        setArchive(archiveData);
+        
+        // Sort by trendRank (descending), then by createdAt (descending) as fallback
+        const sortByRank = (prompts) => {
+          return [...prompts].sort((a, b) => {
+            const rankA = a.trendRank || 0;
+            const rankB = b.trendRank || 0;
+            if (rankA !== rankB) {
+              return rankB - rankA; // Higher rank first
+            }
+            // If same rank, sort by createdAt (newer first)
+            return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
+          });
+        };
+        
+        setTrending(sortByRank(trendingData));
+        setNewPrompts(sortByRank(newData));
+        setArchive(sortByRank(archiveData));
       } catch (error) {
         console.error("Error fetching prompts:", error);
       } finally {
@@ -64,11 +87,18 @@ function HomePageContent() {
   }, [searchParams]);
 
   const handleCategoryChange = (categoryId) => {
-    setFilters((prev) => ({
-      ...prev,
-      primaryCategory: categoryId,
-      god: categoryId === "with-god" ? prev.god : null,
-    }));
+    setFilters((prev) => {
+      const newFilters = {
+        ...prev,
+        primaryCategory: categoryId,
+        god: categoryId === "with-god" ? prev.god : null,
+      };
+      // Track filter change
+      if (categoryId) {
+        trackFilterApply('primaryCategory', categoryId);
+      }
+      return newFilters;
+    });
   };
 
   const handleFilterChange = (newFilters) => {
@@ -80,23 +110,22 @@ function HomePageContent() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <HomepageSchema />
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm" role="banner">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AItrendpromt</h1>
               <p className="mt-0.5 text-xs text-gray-600">Discover viral AI prompts with real examples</p>
             </div>
-            <a
-              href="https://www.instagram.com/aitrendpromt/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <InstagramLink
+              location="header"
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-semibold hover:from-purple-700 hover:to-pink-700 transition-all shadow-sm hover:shadow-md"
             >
               <Instagram className="w-4 h-4" />
               <span className="hidden sm:inline">Follow on Instagram</span>
               <span className="sm:hidden">Follow</span>
-            </a>
+            </InstagramLink>
           </div>
         </div>
       </header>
@@ -105,7 +134,19 @@ function HomePageContent() {
         {/* Search and Filter Bar */}
         <div className="mb-5">
           <div className="mb-3">
-            <SearchBar value={searchQuery} onChange={setSearchQuery} />
+            <SearchBar 
+              value={searchQuery} 
+              onChange={(value) => {
+                setSearchQuery(value);
+                // Track search after user stops typing (debounce)
+                if (value.trim().length > 0) {
+                  const timeoutId = setTimeout(() => {
+                    trackSearch(value.trim());
+                  }, 1000);
+                  return () => clearTimeout(timeoutId);
+                }
+              }} 
+            />
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
@@ -139,29 +180,24 @@ function HomePageContent() {
                 <p className="text-xs text-gray-700">See real examples & step-by-step tutorials</p>
               </div>
             </div>
-            <a
-              href="https://www.instagram.com/aitrendpromt/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <InstagramLink
+              location="cta_homepage"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold hover:from-purple-700 hover:to-pink-700 transition-all shadow-md hover:shadow-lg whitespace-nowrap"
             >
               <Instagram className="w-4 h-4" />
               <span>Follow @aitrendpromt</span>
-            </a>
+            </InstagramLink>
           </div>
         </div>
 
         <div>
           {loading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-              <p className="text-gray-600">Loading prompts...</p>
-            </div>
+            <LoadingSkeleton count={8} />
           ) : hasActiveFilters ? (
             <FilteredResults filters={filters} searchQuery={searchQuery} />
           ) : (
             <>
-              <section className="mb-6">
+              <section className="mb-6" aria-label="Trending AI prompts">
                 <h2 className="text-xl font-bold text-gray-900 mb-3">🔥 Trending Today</h2>
                 {trending.length > 0 ? (
                   <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
@@ -174,7 +210,7 @@ function HomePageContent() {
                 )}
               </section>
 
-              <section className="mb-6">
+              <section className="mb-6" aria-label="New AI prompts">
                 <h2 className="text-xl font-bold text-gray-900 mb-3">✨ New Prompts</h2>
                 {newPrompts.length > 0 ? (
                   <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
@@ -187,7 +223,7 @@ function HomePageContent() {
                 )}
               </section>
 
-              <section className="mb-6">
+              <section className="mb-6" aria-label="Archived viral AI prompts">
                 <h2 className="text-xl font-bold text-gray-900 mb-3">📦 Old Viral Trends</h2>
                 {archive.length > 0 ? (
                   <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
@@ -224,18 +260,16 @@ function HomePageContent() {
         </>
       )}
 
-      <footer className="border-t border-gray-200 bg-white py-6">
+      <footer className="border-t border-gray-200 bg-white py-6" role="contentinfo">
         <div className="container mx-auto px-4 text-center text-gray-600 text-xs">
           <p>© {new Date().getFullYear()} AItrendpromt • Free, no login required</p>
-          <a
-            href="https://www.instagram.com/aitrendpromt/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <InstagramLink
+            location="footer"
             className="inline-flex items-center gap-1.5 mt-3 text-purple-600 hover:text-purple-700 transition-colors"
           >
             <Instagram className="w-3.5 h-3.5" />
             <span>Follow us on Instagram for best results</span>
-          </a>
+          </InstagramLink>
         </div>
       </footer>
     </div>

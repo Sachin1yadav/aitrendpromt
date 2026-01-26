@@ -76,6 +76,12 @@ const promptSchema = new mongoose.Schema({
     enum: ['trending', 'new', 'archive'],
     default: 'new'
   },
+  trendRank: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 1000
+  },
   createdAt: {
     type: String,
     default: () => new Date().toISOString().split('T')[0]
@@ -111,6 +117,7 @@ const promptSchema = new mongoose.Schema({
 // Index for faster queries (slug index already created by unique: true)
 promptSchema.index({ category: 1 });
 promptSchema.index({ 'filters.primaryCategory': 1 });
+promptSchema.index({ trendRank: -1 }); // Index for sorting by rank
 
 module.exports = mongoose.model('Prompt', promptSchema);
 

@@ -49,7 +49,8 @@ router.get('/', async (req, res, next) => {
       ];
     }
     
-    const prompts = await Prompt.find(query).sort({ createdAt: -1 }).lean();
+    // Sort by trendRank (descending), then by createdAt (descending) for same rank
+    const prompts = await Prompt.find(query).sort({ trendRank: -1, createdAt: -1 }).lean();
     res.json({ 
       success: true, 
       count: prompts.length, 

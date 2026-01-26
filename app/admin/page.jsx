@@ -91,6 +91,7 @@ export default function AdminPage() {
     imgshoulduse: [],
     tags: [],
     category: "new",
+    trendRank: 0,
     filters: {
       primaryCategory: null,
       style: [],
@@ -121,9 +122,14 @@ export default function AdminPage() {
   const loadPrompts = async (secret) => {
     setLoading(true);
     try {
+      // Add a small delay to ensure database update is complete
+      await new Promise(resolve => setTimeout(resolve, 500));
       const data = await getAllPrompts();
-      setPrompts(data);
+      // Sort by trendRank for display
+      const sortedData = [...data].sort((a, b) => (b.trendRank || 0) - (a.trendRank || 0));
+      setPrompts(sortedData);
     } catch (error) {
+      console.error("Failed to load prompts:", error);
       alert("Failed to load prompts");
     } finally {
       setLoading(false);
@@ -156,11 +162,26 @@ export default function AdminPage() {
 
   // Handle image arrays - filter out empty strings before saving
   const prepareFormData = (data) => {
-    return {
-      ...data,
+    // Create a clean object with only the fields we want to send
+    const cleanData = {
+      slug: data.slug,
+      title: data.title,
+      description: data.description,
+      bestModel: data.bestModel,
+      modelRatings: data.modelRatings,
+      prompt: data.prompt,
+      beforeImage: data.beforeImage,
+      afterImage: data.afterImage,
       exampleImages: data.exampleImages.filter(img => img.trim() !== ""),
-      imgshoulduse: data.imgshoulduse.filter(img => img.trim() !== "")
+      imgshoulduse: data.imgshoulduse.filter(img => img.trim() !== ""),
+      tags: data.tags,
+      category: data.category,
+      trendRank: parseInt(data.trendRank) || 0,
+      filters: data.filters
     };
+    
+    console.log('Prepared data trendRank:', cleanData.trendRank, 'type:', typeof cleanData.trendRank);
+    return cleanData;
   };
 
   const handleSubmit = async (e) => {
@@ -171,6 +192,13 @@ export default function AdminPage() {
       // Prepare form data - remove empty image URLs
       const preparedData = prepareFormData(formData);
       
+      // Debug: Log what we're sending
+      console.log('=== UPDATE REQUEST ===');
+      console.log('Slug:', preparedData.slug);
+      console.log('TrendRank:', preparedData.trendRank);
+      console.log('TrendRank type:', typeof preparedData.trendRank);
+      console.log('Full prepared data:', JSON.stringify(preparedData, null, 2));
+      
       let result;
       if (editingSlug) {
         result = await updatePrompt(editingSlug, preparedData, adminSecret);
@@ -179,14 +207,21 @@ export default function AdminPage() {
       }
 
       if (result.success) {
+        console.log('=== UPDATE RESPONSE ===');
+        console.log('Response trendRank:', result.data?.trendRank);
+        console.log('Full response:', JSON.stringify(result.data, null, 2));
         alert(editingSlug ? "Prompt updated successfully!" : "Prompt created successfully!");
+        // Reload prompts first to get fresh data
+        await loadPrompts(adminSecret);
         resetForm();
-        loadPrompts(adminSecret);
         router.refresh();
       } else {
+        console.error('=== UPDATE FAILED ===');
+        console.error('Error:', result.error);
         alert(`Error: ${result.error}`);
       }
     } catch (error) {
+      console.error('Submit error:', error);
       alert(`Error: ${error.message}`);
     } finally {
       setLoading(false);
@@ -194,7 +229,12 @@ export default function AdminPage() {
   };
 
   const handleEdit = (prompt) => {
-    setFormData(prompt);
+    // Ensure trendRank is set (default to 0 if missing)
+    const promptData = {
+      ...prompt,
+      trendRank: prompt.trendRank !== undefined && prompt.trendRank !== null ? prompt.trendRank : 0
+    };
+    setFormData(promptData);
     setEditingSlug(prompt.slug);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -238,6 +278,7 @@ export default function AdminPage() {
       imgshoulduse: [],
       tags: [],
       category: "new",
+      trendRank: 0,
       filters: {
         primaryCategory: null,
         style: [],
@@ -295,6 +336,12 @@ export default function AdminPage() {
             >
               Logout
             </button>
+            <a
+              href="/admin/analytics"
+              className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            >
+              Analytics
+            </a>
             <a
               href="/"
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -354,6 +401,30 @@ export default function AdminPage() {
                 </select>
                 <p className="mt-1 text-xs text-gray-500">
                   Choose the category for this prompt
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Trend Ranking (0-1000) *
+                </label>
+                <input
+                  type="number"
+                  name="trendRank"
+                  value={formData.trendRank || 0}
+                  onChange={(e) => {
+                    const value = parseInt(e.target.value) || 0;
+                    setFormData(prev => ({ ...prev, trendRank: Math.max(0, Math.min(1000, value)) }));
+                  }}
+                  min="0"
+                  max="1000"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  placeholder="0"
+                />
+                <p className="mt-1 text-xs text-gray-500">
+                  Higher rank = shown first. Default: 0. Use higher numbers (e.g., 100, 200) for trending prompts.
                 </p>
               </div>
             </div>
@@ -617,6 +688,9 @@ export default function AdminPage() {
                         </span>
                         <span className="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">
                           {prompt.slug}
+                        </span>
+                        <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded font-semibold">
+                          Rank: {prompt.trendRank || 0}
                         </span>
                       </div>
                     </div>

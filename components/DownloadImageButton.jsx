@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { trackDownloadImage } from "@/lib/tracking";
 
-export default function DownloadImageButton({ imageUrl, filename, variant = "default", size = "md" }) {
+export default function DownloadImageButton({ imageUrl, filename, variant = "default", size = "md", imageType = "unknown", promptSlug = null }) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -23,6 +24,9 @@ export default function DownloadImageButton({ imageUrl, filename, variant = "def
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
+      
+      // Track download
+      trackDownloadImage(imageType, promptSlug);
       
       setIsSuccess(true);
       setTimeout(() => setIsSuccess(false), 2000);

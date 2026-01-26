@@ -10,6 +10,8 @@
     "start": "next start",
     "start:server": "node server/index.js",
     "seed": "node server/scripts/seed.js",
+    "update-ranks": "node server/scripts/updateTrendRank.js",
+    "set-ranks": "node server/scripts/setTrendRanks.js",
     "lint": "eslint"
   },
   "dependencies": {
