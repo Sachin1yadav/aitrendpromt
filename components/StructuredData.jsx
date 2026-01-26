@@ -1,5 +1,4 @@
-"use client";
-
+// Server component - can be used in both server and client contexts
 export default function StructuredData({ data }) {
   return (
     <script

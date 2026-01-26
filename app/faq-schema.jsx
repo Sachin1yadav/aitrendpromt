@@ -1,5 +1,3 @@
-"use client";
-
 import StructuredData from "@/components/StructuredData";
 
 const faqSchema = {

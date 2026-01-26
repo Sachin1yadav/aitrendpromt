@@ -6,6 +6,9 @@ import FAQSchema from "./faq-schema";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 
+// Force dynamic rendering to handle useSearchParams in child pages
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   metadataBase: new URL("https://www.aitrendpromt.com"),
   title: {
@@ -93,6 +96,20 @@ export const metadata = {
   },
   category: "Technology",
   classification: "AI Tools, Image Generation, Creative Tools",
+  other: {
+    "theme-color": "#4F46E5",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "AItrendpromt",
+    "application-name": "AItrendpromt",
+    "msapplication-TileColor": "#4F46E5",
+    "geo.region": "US",
+    "geo.placename": "United States",
+    "language": "English",
+    "revisit-after": "1 days",
+    "distribution": "global",
+    "rating": "general",
+  },
 };
 
 // Organization and Website structured data
@@ -152,19 +169,6 @@ export default function RootLayout({ children }) {
         <StructuredData data={websiteSchema} />
         <StructuredData data={breadcrumbSchema} />
         <FAQSchema />
-        <link rel="canonical" href="https://www.aitrendpromt.com" />
-        <meta name="theme-color" content="#4F46E5" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="AItrendpromt" />
-        <meta name="application-name" content="AItrendpromt" />
-        <meta name="msapplication-TileColor" content="#4F46E5" />
-        <meta name="geo.region" content="US" />
-        <meta name="geo.placename" content="United States" />
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="1 days" />
-        <meta name="distribution" content="global" />
-        <meta name="rating" content="general" />
       </head>
       <body className="antialiased bg-gray-50 text-gray-900">
         <ErrorBoundary>
